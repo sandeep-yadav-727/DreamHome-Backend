@@ -1,0 +1,33 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,              
+    username VARCHAR(255) UNIQUE NOT NULL, 
+    password VARCHAR(255) NOT NULL,       
+    create_at text
+);
+
+
+CREATE TABLE contact (
+    id SERIAL PRIMARY KEY,               
+    name VARCHAR(255) NOT NULL,          
+    email VARCHAR(255) NOT NULL,         
+    phone VARCHAR(20),                   
+    message TEXT NOT NULL,               
+    created_at text
+);
+
+
+CREATE TABLE IF NOT EXISTS public.properties
+(
+    id integer NOT NULL DEFAULT nextval('properties_id_seq'::regclass),
+    title character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    description text COLLATE pg_catalog."default",
+    price text COLLATE pg_catalog."default" NOT NULL,
+    image text COLLATE pg_catalog."default",
+    location character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    created_at text COLLATE pg_catalog."default",
+    configuration text COLLATE pg_catalog."default",
+    area text COLLATE pg_catalog."default",
+    property_age text COLLATE pg_catalog."default",
+    furnishing text COLLATE pg_catalog."default",
+    CONSTRAINT properties_pkey PRIMARY KEY (id)
+)
