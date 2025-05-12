@@ -11,7 +11,8 @@ import os
 from fastapi import Request
 import uvicorn
 import json
-# from config import settings
+from pydantic_settings import BaseSettings
+from config import settings
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -27,24 +28,24 @@ app.add_middleware(
 
 
 # Cloudinary configuration
-cloudinary.config(
-    cloud_name='dsh0zdhrt',
-    api_key='586173347811638',
-    api_secret='_75ftja3Iclwb_LJ7nWwNPQM6aE',
-)
-
 # cloudinary.config(
-#     cloud_name=settings.cloudinary_cloud_name,
-#     api_key=settings.cloudinary_api_key,
-#     api_secret=settings.cloudinary_api_secret,
+#     cloud_name='dsh0zdhrt',
+#     api_key='586173347811638',
+#     api_secret='_75ftja3Iclwb_LJ7nWwNPQM6aE',
 # )
+
+cloudinary.config(
+    cloud_name=settings.cloudinary_cloud_name,
+    api_key=settings.cloudinary_api_key,
+    api_secret=settings.cloudinary_api_secret,
+)
 
 
 # OAuth2 scheme for authentication
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 # Database connection configuration
-DATABASE_URL = "postgresql://postgres:1432@localhost/postgres"
+DATABASE_URL =settings.DATABASE_URL
 def get_db_connection():
     return psycopg2.connect(DATABASE_URL)
 
