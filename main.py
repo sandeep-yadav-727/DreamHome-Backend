@@ -76,7 +76,7 @@ class inquiry(BaseModel):
     email: str
     phone: str
     message: str
-    # send_at:str
+    send_at:str
 
 # Authentication check
 def get_current_user(token: str = Depends(oauth2_scheme)):
