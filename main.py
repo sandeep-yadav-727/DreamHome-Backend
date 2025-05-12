@@ -424,5 +424,5 @@ def get_user(token: str = Depends(oauth2_scheme)):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="localhost", port=8000, reload=True)
+    uvicorn.run("main:app", host="localhost", port=7001, reload=True)
     
