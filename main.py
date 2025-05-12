@@ -26,14 +26,6 @@ app.add_middleware(
 )
 
 
-
-# Cloudinary configuration
-# cloudinary.config(
-#     cloud_name='dsh0zdhrt',
-#     api_key='586173347811638',
-#     api_secret='_75ftja3Iclwb_LJ7nWwNPQM6aE',
-# )
-
 cloudinary.config(
     cloud_name=settings.cloudinary_cloud_name,
     api_key=settings.cloudinary_api_key,
